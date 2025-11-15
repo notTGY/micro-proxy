@@ -17,3 +17,10 @@ or build it and...
 ```
 wget http://localhost:8080/fetch?url=https://placehold.co/400
 ```
+
+
+# Deploy on server, linux binary
+
+```
+wget https://github.com/notTGY/micro-proxy/releases/download/v0/micro-proxy
+```
