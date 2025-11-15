@@ -93,8 +93,8 @@ func fetchURL(w http.ResponseWriter, r *http.Request) {
 func main() {
 	http.HandleFunc("/fetch", fetchURL)
 
-	log.Println("Server starting on :8080")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	log.Println("Server starting on :80")
+	if err := http.ListenAndServe(":80", nil); err != nil {
 		log.Fatalf("Server failed: %v", err)
 	}
 }
