@@ -71,6 +71,17 @@ func fetchURL(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	defer resp.Body.Close()
+
+	// Log non-200 responses
+	if resp.StatusCode != 200 {
+		body, _ := io.ReadAll(resp.Body)
+		log.Printf("Non-200 response: %d, body: %s", resp.StatusCode, string(body))
+		w.WriteHeader(resp.StatusCode)
+		copyHeaders(w.Header(), resp.Header)
+		w.Write(body)
+		return
+	}
+
 	w.WriteHeader(resp.StatusCode)
 	copyHeaders(w.Header(), resp.Header)
 
